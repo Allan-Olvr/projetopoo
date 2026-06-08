@@ -2,13 +2,10 @@
   Documento de Design: Spirit: Escape from the Castle
 1. Título do Jogo
 Spirit: escape from the castle
-
 3. Descrição Geral
 Tipo: Plataforma 2D com elementos de ação.
 Ambiente: Castelo sombrio e cheio de mistérios, dividida entre o plano espiritual e o físico.
-
 Ideia Principal: O jogador alterna na forma de um fantasma e a forma humana para superar obstáculos e derrotar um guardião gigante que protege a saída.
-
 4. Objetivo do Jogo
 Atravessar os obstáculos, coletar fragmentos e derrotar o Guardião Scorpion  para escapar do castelo.
 5. Personagem Principal
