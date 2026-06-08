@@ -18,7 +18,6 @@ COR_BOTAO_HOVER = (75, 0, 130)    # Índigo (brilha ao passar o mouse)
 COR_TEXTO_BOTAO = (240, 240, 255) # Branco azulado
 
 # 3. Fontes
-# Usando fontes padrão do sistema. Caso tenha uma fonte .ttf, substitua pelo caminho dela.
 fonte_titulo = pygame.font.SysFont("impact", 50)
 fonte_botoes = pygame.font.SysFont("arial", 30)
 
@@ -47,7 +46,7 @@ def menu_principal():
         x_botao = (LARGURA // 2) - (largura_botao // 2)
         
         btn_jogar = pygame.Rect(x_botao, 250, largura_botao, altura_botao)
-        btn_config = pygame.Rect(x_botao, 330, largura_botao, altura_botao)
+        btn_creditos = pygame.Rect(x_botao, 330, largura_botao, altura_botao) # Nome da variável atualizado para clareza
         btn_sair = pygame.Rect(x_botao, 410, largura_botao, altura_botao)
 
         # 5. Lógica de Interação (Hover - Mudar de cor ao passar o mouse)
@@ -57,11 +56,11 @@ def menu_principal():
         else:
             pygame.draw.rect(tela, COR_BOTAO_NORMAL, btn_jogar, border_radius=10)
 
-        # Botão Configurações
-        if btn_config.collidepoint(posicao_mouse):
-            pygame.draw.rect(tela, COR_BOTAO_HOVER, btn_config, border_radius=10)
+        # Botão Créditos
+        if btn_creditos.collidepoint(posicao_mouse):
+            pygame.draw.rect(tela, COR_BOTAO_HOVER, btn_creditos, border_radius=10)
         else:
-            pygame.draw.rect(tela, COR_BOTAO_NORMAL, btn_config, border_radius=10)
+            pygame.draw.rect(tela, COR_BOTAO_NORMAL, btn_creditos, border_radius=10)
 
         # Botão Sair
         if btn_sair.collidepoint(posicao_mouse):
@@ -69,9 +68,9 @@ def menu_principal():
         else:
             pygame.draw.rect(tela, COR_BOTAO_NORMAL, btn_sair, border_radius=10)
 
-        # 6. Desenhar o texto por cima dos botões
+        # 6. Desenhar o texto por cima dos botões (Nome alterado para "Créditos")
         desenhar_texto("Jogar", fonte_botoes, COR_TEXTO_BOTAO, tela, LARGURA // 2, 275)
-        desenhar_texto("Configurações", fonte_botoes, COR_TEXTO_BOTAO, tela, LARGURA // 2, 355)
+        desenhar_texto("Créditos", fonte_botoes, COR_TEXTO_BOTAO, tela, LARGURA // 2, 355)
         desenhar_texto("Sair", fonte_botoes, COR_TEXTO_BOTAO, tela, LARGURA // 2, 435)
 
         # 7. Monitoramento de Eventos (Cliques e Fechamento)
@@ -84,11 +83,11 @@ def menu_principal():
                 if evento.button == 1: # Clique com o botão esquerdo do mouse
                     if btn_jogar.collidepoint(posicao_mouse):
                         print("Iniciar o Jogo!") 
-                        # Aqui você chamará a função que inicia a gameplay (ex: loop_jogo())
+                        # loop_jogo()
                     
-                    elif btn_config.collidepoint(posicao_mouse):
-                        print("Abrir Menu de Configurações!")
-                        # Aqui você criará a tela de configurações futuramente
+                    elif btn_creditos.collidepoint(posicao_mouse):
+                        print("Abrir Tela de Créditos!") # Print atualizado
+                        # Aqui você criará a tela de créditos futuramente
                         
                     elif btn_sair.collidepoint(posicao_mouse):
                         pygame.quit()
@@ -98,7 +97,7 @@ def menu_principal():
         pygame.display.update()
         relogio.tick(60)
 
-# Garante que o menu só rode se o arquivo for executado diretamente
+# Para rodar o menu se o script for executado diretamente
 if __name__ == "__main__":
     menu_principal()
 
