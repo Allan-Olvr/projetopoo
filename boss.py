@@ -1,6 +1,6 @@
 import pygame
 from player import Entidade
-
+# Classe abstrata
 class InimigoBasico(Entidade):
     def __init__(self, x, y, tipo):
         super().__init__(x, y, hp_maximo=1)
@@ -9,7 +9,7 @@ class InimigoBasico(Entidade):
 
     def update(self):
         self.x += self.velocidade
-
+# Classe abstrata 
 class ChefeScorpion(Entidade):
     def __init__(self, x, y):
         super().__init__(x, y, hp_maximo=5)
